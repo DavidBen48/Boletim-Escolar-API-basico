@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "nome": "David",
+    "notas": [8, 7.5, 9, 6]
+  },
+  {
+    "id": 2,
+    "nome": "Laryssa",
+    "notas": [9, 8.5, 10, 5]
+  },
+  {
+    "id": 3,
+    "nome": "Ana Keren",
+    "notas": [1, 7, 4.5, 4]
+  },
+  {
+    "id": 4,
+    "nome": "Cezar",
+    "notas": [9, 5, 6, 9]
+  },
+  {
+    "id": 5,
+    "nome": "Marli",
+    "notas": [6, 9.5, 5, 7]
+  },
+  {
+    "id": 6,
+    "nome": "Gabriel",
+    "notas": [10, 10, 10, 6]
+  },
+  {
+    "id": 7,
+    "nome": "Lucas",
+    "notas": [6, 8, 4, 6]
+  },
+  {
+    "id": 8,
+    "nome": "Pedro",
+    "notas": [0, 2, 5, 5]
+  },
+  {
+    "id": 9,
+    "nome": "João",
+    "notas": [10, 9, 8, 2]
+  },
+  {
+    "id": 10,
+    "nome": "Antonietta",
+    "notas": [6, 5, 5.6, 8]
+  }
+]
+
