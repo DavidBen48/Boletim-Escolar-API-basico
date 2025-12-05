@@ -77,3 +77,14 @@ npm run start:dev
 - `GET /alunos/aprovados` - Lista alunos aprovados
 - `GET /alunos/recuperacao` - Lista alunos em recuperação
 - `GET /alunos/reprovados` - Lista alunos reprovados
+
+## 🔮 Futuras Atualizações
+
+- **Implementação de POST, PUT e DELETE** - Adicionar funcionalidades para criar, atualizar e deletar alunos
+- **Readaptação para API RESTful** - Ajustar a arquitetura e endpoints para seguir completamente os padrões REST
+- **Melhorias de robustez** - Transformar o projeto em uma solução mais completa e escalável, incluindo:
+  - Integração com banco de dados não-relacional (MongoDB, etc.)
+  - Validação de dados mais robusta
+  - Autenticação e autorização
+  - Documentação com Swagger/OpenAPI
+  - Testes automatizados
