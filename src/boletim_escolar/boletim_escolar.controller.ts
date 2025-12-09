@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { BoletimEscolarService } from './boletim_escolar.service';
 
 @Controller('alunos')
@@ -8,7 +8,7 @@ export class BoletimEscolarController {
     private readonly boletimEscolarService: BoletimEscolarService
   ) {}
 
-  @Get('geral') 
+  @Get() 
   listarAlunos() {
     return this.boletimEscolarService.listarAlunos();
   }
@@ -31,6 +31,22 @@ export class BoletimEscolarController {
   @Get('id/:id')
   buscarAlunoPorId(@Param('id') id: any) {
     return this.boletimEscolarService.buscarAlunoPorId(id);
+  }
+
+  @Post()
+  async criarAluno(@Body() body: { nome: string; notas: number[] }) {
+    return this.boletimEscolarService.criarAluno(body.nome, body.notas);
+  }
+
+  @Put('id/:id')
+  async atualizarAluno(@Param('id') id: any, @Body() body: { nome?: string; notas?: number[] }) {
+    return this.boletimEscolarService.atualizarAluno(id, body.nome, body.notas);
+  }
+
+  @Delete('id/:id')
+  async deletarAluno(@Param('id') id: any) {
+    await this.boletimEscolarService.deletarAluno(id);
+    return { message: 'Aluno deletado com sucesso.' };
   }
 
 }
