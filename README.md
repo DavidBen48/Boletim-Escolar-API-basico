@@ -98,7 +98,7 @@ npm run start:dev
 
 ## 🔧 Como Usar os Métodos POST, PUT e DELETE
 
-### Usando Postman
+### USANDO POSTMAN / INSOMNIA
 
 #### POST - Criar Aluno
 1. Método: `POST`
