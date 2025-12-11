@@ -12,6 +12,7 @@ Sistema de boletim escolar que oferece endpoints para:
 - Atualizar dados de alunos existentes (PUT)
 - Deletar alunos (DELETE)
 - Calcular automaticamente a média e o status de aprovação baseado nas notas
+- Documentação interativa da API com Swagger/OpenAPI
 
 Os dados dos alunos são armazenados em um arquivo JSON estático (`alunos.json`).
 
@@ -21,6 +22,7 @@ Os dados dos alunos são armazenados em um arquivo JSON estático (`alunos.json`
 - **TypeScript** - Superset do JavaScript com tipagem estática
 - **Node.js** - Ambiente de execução JavaScript
 - **Express** - Framework web (via @nestjs/platform-express)
+- **Swagger/OpenAPI** - Documentação interativa da API (via @nestjs/swagger)
 
 ## 📁 Estrutura do Projeto
 
@@ -65,6 +67,7 @@ npm run start:dev
 ```
 
 4. A API estará disponível em `http://localhost:3000`
+5. A documentação Swagger estará disponível em `http://localhost:3000/api`
 
 ### Scripts Disponíveis
 
@@ -95,6 +98,60 @@ npm run start:dev
 ### Método DELETE
 - `DELETE /alunos/id/:id` - Deleta um aluno
   - Retorna mensagem de confirmação
+
+## 📚 Documentação Swagger
+
+A API possui documentação interativa gerada automaticamente com Swagger/OpenAPI. A documentação foi implementada utilizando decoradores do `@nestjs/swagger` nos controllers e DTOs, permitindo uma documentação completa e sempre atualizada.
+
+### Onde foi implementado o Swagger:
+
+- **`src/main.ts`** - Configuração principal do Swagger com `DocumentBuilder` e `SwaggerModule`
+- **`src/boletim_escolar/boletim_escolar.controller.ts`** - Decoradores `@ApiTags`, `@ApiOperation`, `@ApiResponse`, `@ApiParam` nos endpoints
+- **DTOs** - Decoradores `@ApiProperty` e `@ApiPropertyOptional` em:
+  - `src/boletim_escolar/dto/criar_aluno.dto.ts`
+  - `src/boletim_escolar/dto/atualizar_aluno.dto.ts`
+  - `src/boletim_escolar/dto/aluno_response.dto.ts`
+
+### Como Acessar e Usar o Swagger:
+
+1. **Inicie o servidor:**
+```bash
+npm run start:dev
+```
+
+2. **Acesse a documentação:**
+Abra seu navegador e acesse: `http://localhost:3000/api`
+
+3. **Interface do Swagger:**
+A interface do Swagger oferece:
+   - Lista completa de todos os endpoints disponíveis
+   - Descrição detalhada de cada endpoint
+   - Parâmetros esperados (path, query, body)
+   - Exemplos de requisições e respostas
+   - Possibilidade de testar os endpoints diretamente na interface
+
+4. **Testando Endpoints no Swagger:**
+   - Clique em um endpoint para expandir seus detalhes
+   - Clique no botão **"Try it out"**
+   - Preencha os parâmetros necessários (se houver)
+   - Para requisições POST/PUT, edite o body JSON no exemplo fornecido
+   - Clique em **"Execute"** para enviar a requisição
+   - Visualize a resposta da API diretamente na interface
+
+5. **Exemplo de uso no Swagger:**
+   - Para criar um aluno: Expanda `POST /alunos`, clique em "Try it out", edite o JSON no campo "Request body" com seus dados e clique em "Execute"
+   - Para buscar um aluno: Expanda `GET /alunos/id/{id}`, clique em "Try it out", informe o ID do aluno e clique em "Execute"
+   - Para atualizar: Expanda `PUT /alunos/id/{id}`, clique em "Try it out", informe o ID e edite o body JSON
+   - Para deletar: Expanda `DELETE /alunos/id/{id}`, clique em "Try it out", informe o ID e clique em "Execute"
+
+### Vantagens do Swagger:
+
+- ✅ Documentação sempre atualizada automaticamente
+- ✅ Interface visual e intuitiva
+- ✅ Teste de endpoints diretamente na interface
+- ✅ Visualização de exemplos de requisições e respostas
+- ✅ Documentação dos tipos de dados (DTOs) com exemplos
+- ✅ Facilita o desenvolvimento e integração da API
 
 ## 🔧 Como Usar os Métodos POST, PUT e DELETE
 
@@ -142,104 +199,6 @@ npm run start:dev
 2. URL: `http://localhost:3000/alunos/id/n` (substitua `n` pelo ID do aluno específico)
 3. Não é necessário enviar Body
 
-### Usando JavaScript/Fetch (Serviço Web)
-
-#### POST - Criar Aluno
-```javascript
-fetch('http://localhost:3000/alunos', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    nome: 'João Silva',
-    notas: [8.5, 7.0, 9.0, 8.0]
-  })
-})
-.then(response => response.json())
-.then(data => console.log('Aluno criado:', data))
-.catch(error => console.error('Erro:', error));
-```
-
-#### PUT - Atualizar Aluno
-```javascript
-// Atualizar apenas o nome
-fetch('http://localhost:3000/alunos/id/1', {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    nome: 'João Silva Santos'
-  })
-})
-.then(response => response.json())
-.then(data => console.log('Aluno atualizado:', data))
-.catch(error => console.error('Erro:', error));
-
-// Atualizar apenas as notas
-fetch('http://localhost:3000/alunos/id/1', {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    notas: [9.0, 8.5, 9.5, 8.5]
-  })
-})
-.then(response => response.json())
-.then(data => console.log('Aluno atualizado:', data))
-.catch(error => console.error('Erro:', error));
-
-// Atualizar nome e notas
-fetch('http://localhost:3000/alunos/id/1', {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    nome: 'João Silva Santos',
-    notas: [9.0, 8.5, 9.5, 8.5]
-  })
-})
-.then(response => response.json())
-.then(data => console.log('Aluno atualizado:', data))
-.catch(error => console.error('Erro:', error));
-```
-
-#### DELETE - Deletar Aluno
-```javascript
-fetch('http://localhost:3000/alunos/id/1', {
-  method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json',
-  }
-})
-.then(response => response.json())
-.then(data => console.log('Resultado:', data))
-.catch(error => console.error('Erro:', error));
-```
-
-### Usando cURL (Terminal)
-
-#### POST - Criar Aluno
-```bash
-curl -X POST http://localhost:3000/alunos \
-  -H "Content-Type: application/json" \
-  -d '{"nome": "João Silva", "notas": [8.5, 7.0, 9.0, 8.0]}'
-```
-
-#### PUT - Atualizar Aluno
-```bash
-curl -X PUT http://localhost:3000/alunos/id/1 \
-  -H "Content-Type: application/json" \
-  -d '{"nome": "João Silva Santos", "notas": [9.0, 8.5, 9.5, 8.5]}'
-```
-
-#### DELETE - Deletar Aluno
-```bash
-curl -X DELETE http://localhost:3000/alunos/id/1
-```
 
 ## ✅ Funcionalidades Implementadas
 
@@ -247,6 +206,7 @@ curl -X DELETE http://localhost:3000/alunos/id/1
 - ✅ **CRUD completo** - Criar, ler, atualizar e deletar alunos
 - ✅ **Validação de dados** - Validação de nome e notas (valores entre 0 e 10)
 - ✅ **Cálculo automático** - Média e status de aprovação calculados automaticamente
+- ✅ **Documentação Swagger/OpenAPI** - Documentação interativa completa da API com possibilidade de testar endpoints diretamente
 
 ## 🔮 Futuras Atualizações
 
@@ -255,5 +215,5 @@ curl -X DELETE http://localhost:3000/alunos/id/1
   - Integração com banco de dados não-relacional (MongoDB)
   - Validação de dados mais robusta
   - Autenticação e autorização
-  - Documentação com Swagger/OpenAPI
   - Testes automatizados
+- **Docker** - Implementar containerização com Docker para facilitar o deploy e o ambiente de desenvolvimento

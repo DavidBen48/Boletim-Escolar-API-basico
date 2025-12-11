@@ -67,14 +67,14 @@ export class BoletimEscolarService {
     const id_aluno = parseInt(id_recebido, 10);
   
     if (isNaN(id_aluno)) {
-      throw new BadRequestException('endpoint 1 -> ID inválido. O parâmetro deve ser um número.');
+      throw new BadRequestException('ID inválido. O parâmetro deve ser um número.');
     }
 
     const alunos = await this.carregarAlunos();
     const aluno_encontrado = alunos.find(aluno => aluno.id === id_aluno);
   
     if (!aluno_encontrado) {
-      throw new NotFoundException('endpoint 2 -> Aluno não encontrado.');
+      throw new NotFoundException('Aluno não encontrado.');
     }
   
     return aluno_encontrado;
