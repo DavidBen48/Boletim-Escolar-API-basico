@@ -31,11 +31,15 @@ boletim_escolar/
 ├── src/
 │   ├── boletim_escolar/
 │   │   ├── alunos.json              # Dados estáticos dos alunos
+│   │   ├── dto/                     # DTOs para validação e documentação Swagger
+│   │   │   ├── criar_aluno.dto.ts
+│   │   │   ├── atualizar_aluno.dto.ts
+│   │   │   └── aluno_response.dto.ts
 │   │   ├── boletim_escolar.controller.ts
 │   │   ├── boletim_escolar.service.ts
 │   │   └── boletim_escolar.module.ts
 │   ├── app.module.ts
-│   └── main.ts
+│   └── main.ts                      # Configuração do Swagger
 ├── dist/                            # Código compilado
 ├── nest-cli.json
 ├── package.json
@@ -77,6 +81,8 @@ npm run start:dev
 - `npm run start:prod` - Inicia o servidor em modo produção
 
 ## 📡 Endpoints Disponíveis
+
+> **Nota:** Para uma documentação completa e interativa de todos os endpoints, incluindo exemplos de requisições e respostas, acesse a [Documentação Swagger](#-documentação-swagger) em `http://localhost:3000/api`
 
 ### Métodos GET
 - `GET /alunos` - Lista todos os alunos
@@ -152,6 +158,8 @@ A interface do Swagger oferece:
 - ✅ Visualização de exemplos de requisições e respostas
 - ✅ Documentação dos tipos de dados (DTOs) com exemplos
 - ✅ Facilita o desenvolvimento e integração da API
+
+> **💡 Dica:** A forma mais fácil de testar os endpoints é usando a interface Swagger em `http://localhost:3000/api`, que permite testar todos os métodos diretamente no navegador. Veja mais detalhes na seção [Documentação Swagger](#-documentação-swagger).
 
 ## 🔧 Como Usar os Métodos POST, PUT e DELETE
 
