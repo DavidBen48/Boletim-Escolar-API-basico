@@ -32,17 +32,23 @@ boletim_escolar/
 │   ├── boletim_escolar/
 │   │   ├── alunos.json              # Dados estáticos dos alunos
 │   │   ├── dto/                     # DTOs para validação e documentação Swagger
+|   |   |   |
 │   │   │   ├── criar_aluno.dto.ts
-│   │   │   ├── atualizar_aluno.dto.ts
+│   │   │   ├── atualizar_aluno.dto.ts 
 │   │   │   └── aluno_response.dto.ts
-│   │   ├── boletim_escolar.controller.ts
-│   │   ├── boletim_escolar.service.ts
-│   │   └── boletim_escolar.module.ts
+|   |   |
+│   │   ├── boletim_escolar.controller.ts   # Controladores
+│   │   ├── boletim_escolar.service.ts      # Lógica de negócios
+│   │   └── boletim_escolar.module.ts       # Módulo principal
+|   |
 │   ├── app.module.ts
-│   └── main.ts                      # Configuração do Swagger
+│   └── main.ts                      # Configuração do Servidor e Swagger
+|
+|
 ├── dist/                            # Código compilado
 ├── nest-cli.json
 ├── package.json
+├── README.md                        # Documentação do projeto (você está aqui)
 └── tsconfig.json
 ```
 
