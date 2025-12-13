@@ -21,6 +21,7 @@ export class BoletimEscolarController {
   @Get()
   @ApiOperation({ summary: 'Listar todos os alunos' })
   @ApiResponse({ status: 200, type: [AlunoResponseDto] })
+  @ApiResponse({ status: 404, description: 'Alunos não encontrados.' })
   listarAlunos() {
     return this.boletimEscolarService.listarAlunos();
   }
@@ -29,14 +30,25 @@ export class BoletimEscolarController {
   @Get('aprovados')
   @ApiOperation({ summary: 'Listar alunos aprovados' })
   @ApiResponse({ status: 200, type: [AlunoResponseDto] })
+  @ApiResponse({ status: 404, description: 'Alunos aprovados não encontrados.' })
   listarAlunosAprovados() {
     return this.boletimEscolarService.listarAlunosAprovados();
+  }
+
+  // BUSCAR POR DEPENDENTES
+  @Get('dependentes')
+  @ApiOperation({ summary: 'Listar alunos em dependência' })
+  @ApiResponse({ status: 200, type: [AlunoResponseDto] })
+  @ApiResponse({ status: 404, description: 'Alunos em dependência não encontrados.' })
+  listarAlunosDependentes() {
+    return this.boletimEscolarService.listarAlunosDependentes();
   }
 
   // BUSCA POR RECUPERAÇÃO
   @Get('recuperacao')
   @ApiOperation({ summary: 'Listar alunos de recuperação' })
   @ApiResponse({ status: 200, type: [AlunoResponseDto] })
+  @ApiResponse({ status: 404, description: 'Alunos de recuperação não encontrados.' })
   listarAlunosRecuperacao() {
     return this.boletimEscolarService.listarAlunosRecuperacao();
   }
@@ -45,6 +57,7 @@ export class BoletimEscolarController {
   @Get('reprovados')
   @ApiOperation({ summary: 'Listar alunos reprovados' })
   @ApiResponse({ status: 200, type: [AlunoResponseDto] })
+  @ApiResponse({ status: 404, description: 'Alunos reprovados não encontrados.' })
   listarAlunosReprovados() {
     return this.boletimEscolarService.listarAlunosReprovados();
   }
@@ -54,6 +67,7 @@ export class BoletimEscolarController {
   @ApiOperation({ summary: 'Buscar aluno por ID' })
   @ApiParam({ name: 'id', type: Number })
   @ApiResponse({ status: 200, type: AlunoResponseDto })
+  @ApiResponse({ status: 400, description: 'ID inválido. O parâmetro deve ser um número.' })
   @ApiResponse({ status: 404, description: 'Aluno não encontrado.' })
   buscarAlunoPorId(@Param('id') id: any) {
     return this.boletimEscolarService.buscarAlunoPorId(id);
@@ -63,6 +77,7 @@ export class BoletimEscolarController {
   @Post()
   @ApiOperation({ summary: 'Criar um novo aluno' })
   @ApiResponse({ status: 201, type: AlunoResponseDto })
+  @ApiResponse({ status: 400, description: 'Nome e notas são obrigatórios.' })
   criarAluno(@Body() body: CriarAlunoDto) {
     return this.boletimEscolarService.criarAluno(body.nome, body.notas);
   }
@@ -72,6 +87,8 @@ export class BoletimEscolarController {
   @ApiOperation({ summary: 'Atualizar um aluno existente' })
   @ApiParam({ name: 'id', type: Number })
   @ApiResponse({ status: 200, type: AlunoResponseDto })
+  @ApiResponse({ status: 400, description: 'ID inválido. O parâmetro deve ser um número.'})
+  @ApiResponse({ status: 404, description: 'Aluno não encontrado.'})
   atualizarAluno(
     @Param('id') id: any,
     @Body() body: AtualizarAlunoDto
@@ -84,6 +101,8 @@ export class BoletimEscolarController {
   @ApiOperation({ summary: 'Deletar aluno pelo ID' })
   @ApiParam({ name: 'id', type: Number })
   @ApiResponse({ status: 200, description: 'Aluno deletado com sucesso.' })
+  @ApiResponse({ status: 400, description: 'ID inválido. O parâmetro deve ser um número.'})
+  @ApiResponse({ status: 404, description: 'Aluno não encontrado.'})
   deletarAluno(@Param('id') id: any) {
     return this.boletimEscolarService.deletarAluno(id);
   }

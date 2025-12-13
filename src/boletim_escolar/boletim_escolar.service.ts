@@ -1,210 +1,286 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { promises as fs } from 'fs';
 import { join } from 'path';
-// import alunosData from './alunos.json';
+
+interface NotasDisciplinas {
+  portugues: number[];
+  matematica: number[];
+  historia: number[];
+  geografia: number[];
+  ingles: number[];
+}
+
+interface AlunoRaw {
+  id: number;
+  nome: string;
+  notas: NotasDisciplinas;
+}
+
+export interface NotasComMedia {
+  portugues: { notas: number[]; media: number };
+  matematica: { notas: number[]; media: number };
+  historia: { notas: number[]; media: number };
+  geografia: { notas: number[]; media: number };
+  ingles: { notas: number[]; media: number };
+}
+
+export interface AlunoCompleto {
+  id: number;
+  nome: string;
+  notas: NotasComMedia;
+  status: string;
+}
 
 @Injectable()
 export class BoletimEscolarService {
+
   // <-- puxando informações do arquivo JSON --> //
-  private async carregarAlunos() {
+  private async carregarAlunos(): Promise<AlunoCompleto[]> {
     const alunosRaw = await this.lerArquivoAlunos();
-  
-    return alunosRaw.map((aluno) => ({
-      ...aluno,
-      media: this.gerarMedia(aluno.notas),
-      status: this.statusDeAprovacao(this.gerarMedia(aluno.notas))
-    }));
+
+    return alunosRaw.map(aluno => {
+      const notasComMedia = this.calcularMediasPorDisciplina(aluno.notas);
+      const status = this.calcularStatusCompleto(notasComMedia);
+
+      return {
+        ...aluno,
+        notas: notasComMedia,
+        status
+      };
+    });
   }
-  
   //<-- fim do puxando informações do arquivo JSON --> //
 
-  // <-- funções para ler e escrever no arquivo JSON --> //
-  private async lerArquivoAlunos(): Promise<{ id: number; nome: string; notas: number[] }[]> {
-    const caminhoArquivo = join(__dirname, 'alunos.json');
-    const conteudo = await fs.readFile(caminhoArquivo, 'utf-8');
-    return JSON.parse(conteudo);
+// <-- funções para ler e escrever no arquivo JSON --> //
+private getCaminhoArquivo(): string {
+  return join(
+    process.cwd(),
+    'src',
+    'boletim_escolar',
+    'alunos.json'
+  );
+}
+
+private async lerArquivoAlunos(): Promise<AlunoRaw[]> {
+  const caminhoArquivo = this.getCaminhoArquivo();
+  const conteudo = await fs.readFile(caminhoArquivo, 'utf-8');
+  return JSON.parse(conteudo);
+}
+
+private async escreverArquivoAlunos(alunos: AlunoRaw[]): Promise<void> {
+  const caminhoArquivo = this.getCaminhoArquivo();
+  await fs.writeFile(caminhoArquivo, JSON.stringify(alunos, null, 2), 'utf-8');
+}
+// <-- fim das funções para ler e escrever no arquivo JSON --> //
+
+// <-- funções de lógica -->
+calcularMedia(notas: number[]): number {
+  if (!notas || notas.length === 0) {
+    return 0;
   }
 
-  private async escreverArquivoAlunos(alunos: { id: number; nome: string; notas: number[] }[]): Promise<void> {
-    const caminhoArquivo = join(__dirname, 'alunos.json');
-    await fs.writeFile(caminhoArquivo, JSON.stringify(alunos, null, 2), 'utf-8');
-  }
-  // <-- fim das funções para ler e escrever no arquivo JSON --> //
+  const soma = notas.reduce((acc, nota) => acc + nota, 0);
+  return parseFloat((soma / notas.length).toFixed(2));
+}
 
-  // <-- funcionamento das funções usadas para o GET das rotas --> //
-  gerarMedia(notas: number[]): number {
-    const soma = notas.reduce((acc, nota) => acc + nota, 0);
+calcularMediasPorDisciplina(notas: NotasDisciplinas): NotasComMedia {
+  return {
+    portugues: { notas: notas.portugues, media: this.calcularMedia(notas.portugues) },
+    matematica: { notas: notas.matematica, media: this.calcularMedia(notas.matematica) },
+    historia: { notas: notas.historia, media: this.calcularMedia(notas.historia) },
+    geografia: { notas: notas.geografia, media: this.calcularMedia(notas.geografia) },
+    ingles: { notas: notas.ingles, media: this.calcularMedia(notas.ingles) }
+  };
+}
 
-    if (soma > 40 || soma < 0) {
-      throw new Error('A soma das notas não pode ser maior que 40 ou menor que 0. Corrija as notas e tente novamente.');
+calcularStatusCompleto(notasComMedia: NotasComMedia): string {
+  const disciplinas = ['portugues', 'matematica', 'historia', 'geografia', 'ingles'] as const;
+
+  const disciplinasAprovadas: string[] = [];
+  const disciplinasRecuperacao: string[] = [];
+  const disciplinasReprovadas: string[] = [];
+
+  disciplinas.forEach(disciplina => {
+    const media = notasComMedia[disciplina].media;
+    const nome = this.formatarNomeDisciplina(disciplina);
+
+    if (media >= 7) {
+      disciplinasAprovadas.push(nome);
+    } else if (media >= 5) {
+      disciplinasRecuperacao.push(nome);
+    } else {
+      disciplinasReprovadas.push(nome);
     }
-    
-    const media = soma / notas.length; 
-    
-    return parseFloat(media.toFixed(2));
-  }
+  });
 
-  statusDeAprovacao(media: number): string {
-    switch (true) {
-      case media >= 7:
-        return 'Aprovado';
-      case media >= 5:
-        return 'Recuperação';
-      case media < 5:
-        return 'Reprovado';
-      default:
-        return 'Erro Desconhecido';
-    }
-  }
-  //<-- fim do funcionamento das funções usadas para o GET das rotas --> //
-
-  // <-- funções usadas para o GET das rotas --> //
-  async listarAlunos() {
-    return this.carregarAlunos();
-  }
-
-  async buscarAlunoPorId(id_recebido: any) {
-    const id_aluno = parseInt(id_recebido, 10);
+  // Regra fechada e determinística
+  if (disciplinasReprovadas.length > 0) {
+    return `Reprovado! Repetirá de Ano! Reprovou nas seguintes matérias: ${disciplinasReprovadas.join(', ')}`;
   
-    if (isNaN(id_aluno)) {
-      throw new BadRequestException('ID inválido. O parâmetro deve ser um número.');
-    }
-
-    const alunos = await this.carregarAlunos();
-    const aluno_encontrado = alunos.find(aluno => aluno.id === id_aluno);
+  } else if (disciplinasAprovadas.length === 5 && disciplinasRecuperacao.length === 0) {
+    return 'Aprovado com Sucesso! Passou em todas as matérias.';
   
-    if (!aluno_encontrado) {
-      throw new NotFoundException('Aluno não encontrado.');
-    }
+  } else if (disciplinasRecuperacao.length > 3) {
+    return `Recuperação! Está de recuperação nas seguintes matérias: ${disciplinasRecuperacao.join(', ')}`;
   
-    return aluno_encontrado;
+  } else if (disciplinasRecuperacao.length >= 1 && disciplinasRecuperacao.length <= 3) {
+    return `Passou, mas estará em dependência nas seguintes matérias: ${disciplinasRecuperacao.join(', ')}`;
+  }
+  // Caso todas as condições acima falhem, retorna uma mensagem genérica
+  return 'Status indeterminado.';
+}
+
+private formatarNomeDisciplina(disciplina: string): string {
+  const nomes: Record<string, string> = {
+    portugues: 'Português',
+    matematica: 'Matemática',
+    historia: 'História',
+    geografia: 'Geografia',
+    ingles: 'Inglês'
+  };
+
+  return nomes[disciplina] || disciplina;
+}
+
+statusDeAprovacao(media: number): string {
+  if (media >= 7) return 'Aprovado';
+  if (media >= 5) return 'Recuperação';
+  return 'Reprovado';
+}
+//<-- fim das funções lógicas --> //
+
+// <-- funções usadas para o GET das rotas --> //
+async listarAlunos() {
+  return this.carregarAlunos();
+}
+
+async buscarAlunoPorId(id_recebido: any) {
+  const id = parseInt(id_recebido, 10);
+  if (isNaN(id)) {
+    throw new BadRequestException('ID inválido. O parâmetro deve ser um número.');
   }
 
-  async listarAlunosAprovados() {
-    try {
-      const alunos = await this.carregarAlunos();
-      return alunos.filter(aluno => aluno.status === 'Aprovado');
-    }
-    catch (error) {
-      throw new NotFoundException('endpoint 1 -> Alunos aprovados não encontrados.');
-    }
+  const alunos = await this.carregarAlunos();
+  const aluno = alunos.find(a => a.id === id);
+
+  if (!aluno) {
+    throw new NotFoundException('Aluno não encontrado.');
   }
 
-  async listarAlunosRecuperacao() {
-    try {
-      const alunos = await this.carregarAlunos();
-      return alunos.filter(aluno => aluno.status === 'Recuperação');
-    }
-    catch (error) {
-      throw new NotFoundException('endpoint 1 -> Alunos de recuperação não encontrados.');
-    }
+  return aluno;
+}
+
+async listarAlunosAprovados() {
+  const alunos = await this.carregarAlunos();
+  return alunos.filter(a => a.status.includes('Aprovado com Sucesso'));
+}
+
+async listarAlunosDependentes() {
+  const alunos = await this.carregarAlunos();
+  return alunos.filter(a => a.status.includes('dependência'));
+}
+
+async listarAlunosRecuperacao() {
+  const alunos = await this.carregarAlunos();
+  return alunos.filter(a => a.status.includes('Recuperação!'));
+}
+
+async listarAlunosReprovados() {
+  const alunos = await this.carregarAlunos();
+  return alunos.filter(a => a.status.includes('Reprovado!'));
+}
+// <-- fim das funções usadas para o GET das rotas --> //
+
+// <-- funções usadas para POST, PUT e DELETE --> //
+// POST
+async criarAluno(nome: string, notas: NotasDisciplinas): Promise<any> {
+  if (!nome || nome.trim() === '') {
+    throw new BadRequestException('Nome é obrigatório.');
   }
 
-  async listarAlunosReprovados() {
-    try {
-      const alunos = await this.carregarAlunos();
-      return alunos.filter(aluno => aluno.status === 'Reprovado');
-    }
-    catch (error) {
-      throw new NotFoundException('endpoint 1 -> Alunos reprovados não encontrados.');
-    }
-  }
-  // <-- fim das funções usadas para o GET das rotas --> //
+  this.validarNotas(notas);
 
-  // <-- funções usadas para POST, PUT e DELETE --> //
-  // POST
-  async criarAluno(nome: string, notas: number[]): Promise<any> {
-    if (!nome || nome.trim() === '') {
-      throw new BadRequestException('Nome é obrigatório.');
-    }
+  const alunos = await this.lerArquivoAlunos();
+  const novoId = Math.max(...alunos.map(a => a.id), 0) + 1;
 
-    if (!notas || !Array.isArray(notas) || notas.length === 0) {
-      throw new BadRequestException('Notas são obrigatórias e devem ser um array com pelo menos uma nota.');
-    }
+  const novoAluno: AlunoRaw = {
+    id: novoId,
+    nome: nome.trim(),
+    notas
+  };
 
-    if (notas.some(nota => typeof nota !== 'number' || nota < 0 || nota > 10)) {
-      throw new BadRequestException('Todas as notas devem ser números entre 0 e 10.');
-    }
+  alunos.push(novoAluno);
+  await this.escreverArquivoAlunos(alunos);
 
-    const alunos = await this.lerArquivoAlunos();
-    const novoId = Math.max(...alunos.map(a => a.id), 0) + 1;
+  const notasComMedia = this.calcularMediasPorDisciplina(notas);
+  const status = this.calcularStatusCompleto(notasComMedia);
 
-    const novoAluno = {
-      id: novoId,
-      nome: nome.trim(),
-      notas: notas
-    };
+  return { ...novoAluno, notas: notasComMedia, status };
+}
 
-    alunos.push(novoAluno);
-    await this.escreverArquivoAlunos(alunos);
-
-    return {
-      ...novoAluno,
-      media: this.gerarMedia(novoAluno.notas),
-      status: this.statusDeAprovacao(this.gerarMedia(novoAluno.notas))
-    };
+// PUT
+async atualizarAluno(id: number, nome?: string, notas?: Partial<NotasDisciplinas>): Promise<any> {
+  const idAluno = parseInt(String(id), 10);
+  if (isNaN(idAluno)) {
+    throw new BadRequestException('ID inválido.');
   }
 
-  // PUT
-  async atualizarAluno(id: number, nome?: string, notas?: number[]): Promise<any> {
-    const id_aluno = parseInt(String(id), 10);
+  const alunos = await this.lerArquivoAlunos();
+  const index = alunos.findIndex(a => a.id === idAluno);
 
-    if (isNaN(id_aluno)) {
-      throw new BadRequestException('ID inválido. O parâmetro deve ser um número.');
-    }
-
-    const alunos = await this.lerArquivoAlunos();
-    const indiceAluno = alunos.findIndex(aluno => aluno.id === id_aluno);
-
-    if (indiceAluno === -1) {
-      throw new NotFoundException('Aluno não encontrado.');
-    }
-
-    if (nome !== undefined) {
-      if (!nome || nome.trim() === '') {
-        throw new BadRequestException('Nome não pode ser vazio.');
-      }
-      alunos[indiceAluno].nome = nome.trim();
-    }
-
-    if (notas !== undefined) {
-      if (!Array.isArray(notas) || notas.length === 0) {
-        throw new BadRequestException('Notas devem ser um array com pelo menos uma nota.');
-      }
-
-      if (notas.some(nota => typeof nota !== 'number' || nota < 0 || nota > 10)) {
-        throw new BadRequestException('Todas as notas devem ser números entre 0 e 10.');
-      }
-
-      alunos[indiceAluno].notas = notas;
-    }
-
-    await this.escreverArquivoAlunos(alunos);
-
-    return {
-      ...alunos[indiceAluno],
-      media: this.gerarMedia(alunos[indiceAluno].notas),
-      status: this.statusDeAprovacao(this.gerarMedia(alunos[indiceAluno].notas))
-    };
+  if (index === -1) {
+    throw new NotFoundException('Aluno não encontrado.');
   }
 
-  // DELETE
-  async deletarAluno(id: number): Promise<void> {
-    const id_aluno = parseInt(String(id), 10);
-
-    if (isNaN(id_aluno)) {
-      throw new BadRequestException('ID inválido. O parâmetro deve ser um número.');
-    }
-
-    const alunos = await this.lerArquivoAlunos();
-    const indiceAluno = alunos.findIndex(aluno => aluno.id === id_aluno);
-
-    if (indiceAluno === -1) {
-      throw new NotFoundException('Aluno não encontrado.');
-    }
-
-    alunos.splice(indiceAluno, 1);
-    await this.escreverArquivoAlunos(alunos);
+  if (nome !== undefined) {
+    if (!nome.trim()) throw new BadRequestException('Nome não pode ser vazio.');
+    alunos[index].nome = nome.trim();
   }
-  // <-- fim das funções usadas para POST, PUT e DELETE --> //
+
+  if (notas) {
+    this.validarNotas({ ...alunos[index].notas, ...notas });
+    alunos[index].notas = { ...alunos[index].notas, ...notas };
+  }
+
+  await this.escreverArquivoAlunos(alunos);
+
+  const notasComMedia = this.calcularMediasPorDisciplina(alunos[index].notas);
+  const status = this.calcularStatusCompleto(notasComMedia);
+
+  return { ...alunos[index], notas: notasComMedia, status };
+}
+
+// DELETE
+async deletarAluno(id: number): Promise<void> {
+  const idAluno = parseInt(String(id), 10);
+  if (isNaN(idAluno)) {
+    throw new BadRequestException('ID inválido.');
+  }
+
+  const alunos = await this.lerArquivoAlunos();
+  const index = alunos.findIndex(a => a.id === idAluno);
+
+  if (index === -1) {
+    throw new NotFoundException('Aluno não encontrado.');
+  }
+
+  alunos.splice(index, 1);
+  await this.escreverArquivoAlunos(alunos);
+}
+// <-- fim das funções usadas para POST, PUT e DELETE --> //
+
+// <-- validação reutilizável -->
+private validarNotas(notas: NotasDisciplinas) {
+  const disciplinas = ['portugues', 'matematica', 'historia', 'geografia', 'ingles'] as const;
+
+  disciplinas.forEach(d => {
+    const arr = notas[d];
+    if (!Array.isArray(arr) || arr.length === 0) {
+      throw new BadRequestException(`Notas de ${d} são obrigatórias.`);
+    }
+    if (arr.some(n => typeof n !== 'number' || n < 0 || n > 10)) {
+      throw new BadRequestException(`Notas de ${d} devem ser entre 0 e 10.`);
+    }
+  });
+}
 }

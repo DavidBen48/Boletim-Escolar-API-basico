@@ -1,253 +1,1102 @@
 [
   {
     "id": 1,
-    "nome": "David",
-    "notas": [8, 7.5, 9, 6]
+    "nome": "David Ben",
+    "notas": {
+      "portugues": [9, 8, 9, 9.5],
+      "matematica": [10, 8.9, 7.1, 9.8],
+      "historia": [7.1, 8.6, 8.8, 10],
+      "geografia": [8.2, 9.1, 9.9, 10],
+      "ingles": [9.3, 7.8, 9, 7.5]
+    }
   },
   {
     "id": 2,
-    "nome": "Laryssa",
-    "notas": [9, 8.5, 10, 5]
+    "nome": "Laryssa Sabino",
+    "notas": {
+      "portugues": [9.1, 9.6, 8.8, 8.3],
+      "matematica": [9.3, 9.8, 10, 8.5],
+      "historia": [9, 7.5, 10, 7.2],
+      "geografia": [9.2, 9.7, 6.9, 7.4],
+      "ingles": [9.5, 9, 7.2, 7.7]
+    }
   },
   {
     "id": 3,
-    "nome": "Ana Keren",
-    "notas": [1, 7, 4.5, 4]
+    "nome": "Fernanda",
+    "notas": {
+      "portugues": [9, 9.5, 8.8, 9.3],
+      "matematica": [8.3, 8.8, 8, 8.5],
+      "historia": [9.5, 10, 9.2, 9.7],
+      "geografia": [8.7, 9.2, 8.4, 8.9],
+      "ingles": [9.1, 9.6, 8.8, 9.3]
+    }
   },
   {
     "id": 4,
-    "nome": "Cezar",
-    "notas": [9, 5, 6, 9]
+    "nome": "Thiago",
+    "notas": {
+      "portugues": [3.5, 4, 3.2, 3.7],
+      "matematica": [4.1, 4.6, 3.8, 4.3],
+      "historia": [3.8, 4.3, 3.5, 4],
+      "geografia": [4.3, 4.8, 4, 4.5],
+      "ingles": [3.9, 4.4, 3.6, 4.1]
+    }
   },
   {
     "id": 5,
-    "nome": "Marli",
-    "notas": [6, 9.5, 5, 7]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.2, 7.8, 7.2, 8.1],
+      "matematica": [7.6, 7.5, 7.8, 7.5],
+      "historia": [7.7, 7.7, 7.2, 8.3],
+      "geografia": [7.1, 7.8, 7.4, 7.7],
+      "ingles": [8, 7.6, 7.9, 7.8]
+    }
   },
   {
     "id": 6,
-    "nome": "Gabriel",
-    "notas": [10, 10, 10, 6]
+    "nome": "Beatriz",
+    "notas": {
+      "portugues": [8.6, 9.1, 8.3, 8.8],
+      "matematica": [9, 9.5, 8.8, 9.3],
+      "historia": [8.2, 8.7, 8, 8.5],
+      "geografia": [9.3, 9.8, 9, 9.5],
+      "ingles": [9.1, 9.6, 8.8, 9.3]
+    }
   },
   {
     "id": 7,
-    "nome": "Lucas",
-    "notas": [6, 8, 4, 6]
+    "nome": "Cristina",
+    "notas": {
+      "portugues": [8.2, 8.7, 8, 8.5],
+      "matematica": [8.8, 9.3, 8.5, 9],
+      "historia": [8.4, 8.9, 8.1, 8.6],
+      "geografia": [8.6, 9.1, 8.3, 8.8],
+      "ingles": [8.5, 9, 8.2, 8.7]
+    }
   },
   {
     "id": 8,
-    "nome": "Pedro",
-    "notas": [0, 2, 5, 5]
+    "nome": "Henrique",
+    "notas": {
+      "portugues": [8.7, 9.2, 8.4, 8.9],
+      "matematica": [9.3, 9.8, 9, 9.5],
+      "historia": [9.1, 9.6, 8.8, 9.3],
+      "geografia": [8.9, 9.4, 8.6, 9.1],
+      "ingles": [9, 9.5, 8.8, 9.3]
+    }
   },
   {
     "id": 9,
-    "nome": "João",
-    "notas": [10, 9, 8, 2]
+    "nome": "David",
+    "notas": {
+      "portugues": [9, 8, 6, 8.6],
+      "matematica": [6, 7.2, 9.8, 7],
+      "historia": [5.5, 9, 6, 5],
+      "geografia": [7.8, 6.7, 9, 6],
+      "ingles": [9, 8, 9, 9.8]
+    }
   },
   {
     "id": 10,
-    "nome": "Antonietta",
-    "notas": [6, 5, 5.6, 8]
+    "nome": "Carlos",
+    "notas": {
+      "portugues": [0.8, 1.3, 0.5, 1],
+      "matematica": [1.9, 2.4, 1.6, 2.1],
+      "historia": [1.2, 1.7, 0.9, 1.4],
+      "geografia": [1.5, 2, 1.2, 1.7],
+      "ingles": [1.1, 1.6, 0.8, 1.3]
+    }
   },
   {
     "id": 11,
-    "nome": "Maria Eduarda",
-    "notas": [8.5, 9, 7.5, 8.2]
+    "nome": "Ricardo",
+    "notas": {
+      "portugues": [1.2, 1.7, 0.9, 1.4],
+      "matematica": [2.5, 3, 2.2, 2.7],
+      "historia": [1.9, 2.4, 1.6, 2.1],
+      "geografia": [2.3, 2.8, 2, 2.5],
+      "ingles": [2, 2.5, 1.7, 2.2]
+    }
   },
   {
     "id": 12,
-    "nome": "Rafael",
-    "notas": [7.8, 8.3, 9.1, 7.2]
+    "nome": "Leticia",
+    "notas": {
+      "portugues": [4.2, 4.7, 3.9, 4.4],
+      "matematica": [4.8, 5.3, 4.5, 5],
+      "historia": [4.5, 5, 4.2, 4.7],
+      "geografia": [4.6, 5.1, 4.3, 4.8],
+      "ingles": [4.7, 5.2, 4.4, 4.9]
+    }
   },
   {
     "id": 13,
-    "nome": "Isabella",
-    "notas": [9.5, 8.7, 9.3, 8.9]
+    "nome": "Leonardo",
+    "notas": {
+      "portugues": [0.7, 1.2, 0.4, 0.9],
+      "matematica": [1.6, 2.1, 1.3, 1.8],
+      "historia": [1, 1.5, 0.7, 1.2],
+      "geografia": [1.3, 1.8, 1, 1.5],
+      "ingles": [1.1, 1.6, 0.8, 1.3]
+    }
   },
   {
     "id": 14,
-    "nome": "Matheus",
-    "notas": [7.2, 8.1, 7.9, 8.5]
+    "nome": "Carolina",
+    "notas": {
+      "portugues": [1.1, 1.6, 0.8, 1.3],
+      "matematica": [2.2, 2.7, 1.9, 2.4],
+      "historia": [1.5, 2, 1.2, 1.7],
+      "geografia": [1.8, 2.3, 1.5, 2],
+      "ingles": [1.3, 1.8, 1, 1.5]
+    }
   },
   {
     "id": 15,
-    "nome": "Sophia",
-    "notas": [8.8, 9.2, 8.4, 9.0]
+    "nome": "Juliana",
+    "notas": {
+      "portugues": [7.5, 8, 7.2, 7.7],
+      "matematica": [8, 8.5, 7.8, 8.3],
+      "historia": [7.2, 7.7, 6.9, 7.4],
+      "geografia": [8.4, 8.9, 8.1, 8.6],
+      "ingles": [7.8, 8.3, 7.5, 8]
+    }
   },
   {
     "id": 16,
-    "nome": "Ana Clara",
-    "notas": [7.1, 7.3, 7.0, 7.2]
+    "nome": "Rodrigo",
+    "notas": {
+      "portugues": [7.9, 8.4, 7.6, 8.1],
+      "matematica": [8.5, 9, 8.2, 8.7],
+      "historia": [7.1, 7.6, 6.8, 7.3],
+      "geografia": [8.8, 9.3, 8.5, 9],
+      "ingles": [8.2, 8.7, 8, 8.5]
+    }
   },
   {
     "id": 17,
-    "nome": "Felipe",
-    "notas": [4.2, 3.8, 4.5, 3.9]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.8, 8.4, 7.4, 7.7],
+      "matematica": [7.1, 7.6, 7.7, 8],
+      "historia": [7.7, 8.3, 7.8, 7.8],
+      "geografia": [7, 8.3, 7.7, 8.4],
+      "ingles": [8, 7.6, 7.9, 8.1]
+    }
   },
   {
     "id": 18,
-    "nome": "Julia",
-    "notas": [9.1, 8.6, 9.4, 8.8]
+    "nome": "Roberto",
+    "notas": {
+      "portugues": [1.9, 2.4, 1.6, 2.1],
+      "matematica": [3, 3.5, 2.7, 3.2],
+      "historia": [2.3, 2.8, 2, 2.5],
+      "geografia": [2.5, 3, 2.2, 2.7],
+      "ingles": [2.4, 2.9, 2.1, 2.6]
+    }
   },
   {
     "id": 19,
-    "nome": "Bruno",
-    "notas": [7.4, 8.2, 7.6, 8.0]
+    "nome": "Bruna",
+    "notas": {
+      "portugues": [8.3, 8.8, 8, 8.5],
+      "matematica": [8.9, 9.4, 8.6, 9.1],
+      "historia": [8.5, 9, 8.2, 8.7],
+      "geografia": [8.7, 9.2, 8.4, 8.9],
+      "ingles": [8.6, 9.1, 8.3, 8.8]
+    }
   },
   {
     "id": 20,
-    "nome": "Laura",
-    "notas": [8.3, 7.9, 8.7, 8.1]
+    "nome": "Matheus",
+    "notas": {
+      "portugues": [7.2, 7.7, 6.9, 7.4],
+      "matematica": [8.1, 8.6, 7.8, 8.3],
+      "historia": [7.9, 8.4, 7.6, 8.1],
+      "geografia": [8.5, 9, 8.2, 8.7],
+      "ingles": [8, 8.5, 7.8, 8.2]
+    }
   },
   {
     "id": 21,
-    "nome": "Ana Júlia",
-    "notas": [7.0, 7.4, 7.1, 7.3]
+    "nome": "Jonas Alberto",
+    "notas": {
+      "portugues": [5.4, 5.9, 5.1, 5.6],
+      "matematica": [6.2, 6.7, 5.9, 6.4],
+      "historia": [5.7, 6.2, 5.4, 5.9],
+      "geografia": [6, 6.5, 5.7, 6.2],
+      "ingles": [6.3, 6.8, 6, 6.5]
+    }
   },
   {
     "id": 22,
-    "nome": "Thiago",
-    "notas": [3.5, 4.1, 3.8, 4.3]
+    "nome": "Diego",
+    "notas": {
+      "portugues": [2.1, 2.6, 1.8, 2.3],
+      "matematica": [3.4, 3.9, 3.1, 3.6],
+      "historia": [2.7, 3.2, 2.4, 2.9],
+      "geografia": [3, 3.5, 2.7, 3.2],
+      "ingles": [2.8, 3.3, 2.5, 3]
+    }
   },
   {
     "id": 23,
-    "nome": "Manuela",
-    "notas": [9.3, 8.9, 9.6, 9.1]
+    "nome": "Felipe",
+    "notas": {
+      "portugues": [4.3, 4.8, 4, 4.5],
+      "matematica": [4.9, 5.4, 4.6, 5.1],
+      "historia": [4.6, 5.1, 4.3, 4.8],
+      "geografia": [4.7, 5.2, 4.4, 4.9],
+      "ingles": [4.8, 5.3, 4.5, 5]
+    }
   },
   {
     "id": 24,
-    "nome": "Guilherme",
-    "notas": [7.7, 8.4, 7.3, 8.6]
+    "nome": "Isabella",
+    "notas": {
+      "portugues": [9.5, 10, 9.2, 9.8],
+      "matematica": [8.7, 9.2, 8.4, 8.9],
+      "historia": [9.3, 9.8, 9, 9.5],
+      "geografia": [8.9, 9.4, 8.6, 9.1],
+      "ingles": [9, 9.5, 8.8, 9.3]
+    }
   },
   {
     "id": 25,
-    "nome": "Beatriz",
-    "notas": [8.6, 9.0, 8.2, 9.3]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.1, 8.3, 7.5, 7.7],
+      "matematica": [7.6, 8, 7.7, 7.6],
+      "historia": [7.5, 7.5, 7.5, 7.8],
+      "geografia": [7.6, 8.4, 7.6, 7.6],
+      "ingles": [7.4, 7.9, 7.2, 7.8]
+    }
   },
   {
     "id": 26,
-    "nome": "Jonas Alberto",
-    "notas": [5.4, 6.2, 5.7, 6.0]
+    "nome": "Rodrigo",
+    "notas": {
+      "portugues": [8.4, 8.9, 8.1, 8.6],
+      "matematica": [9, 9.5, 8.8, 9.3],
+      "historia": [8.6, 9.1, 8.3, 8.8],
+      "geografia": [8.8, 9.3, 8.5, 9],
+      "ingles": [8.7, 9.2, 8.4, 8.9]
+    }
   },
   {
     "id": 27,
-    "nome": "Carolina",
-    "notas": [1.1, 2.2, 1.5, 1.8]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7, 8.4, 7.6, 8],
+      "matematica": [7.2, 7.6, 7.5, 8.1],
+      "historia": [7, 7.8, 7.1, 7.6],
+      "geografia": [7.7, 8, 7.8, 7.7],
+      "ingles": [7.5, 8, 7, 8.2]
+    }
   },
   {
     "id": 28,
-    "nome": "Rodrigo",
-    "notas": [7.9, 8.5, 7.1, 8.8]
+    "nome": "Isabela",
+    "notas": {
+      "portugues": [9.2, 9.7, 9, 9.5],
+      "matematica": [8.8, 9.3, 8.5, 9],
+      "historia": [9.4, 9.9, 9.1, 9.6],
+      "geografia": [9, 9.5, 8.8, 9.3],
+      "ingles": [9.1, 9.6, 8.8, 9.3]
+    }
   },
   {
     "id": 29,
-    "nome": "Fernanda",
-    "notas": [9.0, 8.3, 9.5, 8.7]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.1, 8.2, 7, 7.5],
+      "matematica": [7.1, 7.9, 7.9, 8.2],
+      "historia": [7.8, 7.7, 8, 8],
+      "geografia": [7.7, 7.8, 7, 8.2],
+      "ingles": [7.6, 8.1, 7.4, 7.5]
+    }
   },
   {
     "id": 30,
-    "nome": "Jonas Silva",
-    "notas": [2.8, 3.2, 2.5, 3.0]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.1, 8.1, 7.6, 8],
+      "matematica": [7.2, 8.2, 7.8, 8.2],
+      "historia": [7.1, 8.3, 7.5, 8.1],
+      "geografia": [7.1, 8.1, 7.5, 8],
+      "ingles": [7.6, 7.6, 8, 8.2]
+    }
   },
   {
     "id": 31,
-    "nome": "Camila",
-    "notas": [7.3, 7.8, 8.0, 7.5]
+    "nome": "Patricia",
+    "notas": {
+      "portugues": [7.2, 7.7, 6.9, 7.4],
+      "matematica": [7.8, 8.3, 7.5, 8],
+      "historia": [7, 7.5, 6.7, 7.2],
+      "geografia": [7.9, 8.4, 7.6, 8.1],
+      "ingles": [7.5, 8, 7.2, 7.7]
+    }
   },
   {
     "id": 32,
-    "nome": "Gustavo",
-    "notas": [1.5, 2.3, 1.8, 2.1]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.2, 8.5, 7.7, 7.7],
+      "matematica": [7.5, 8.3, 7, 7.6],
+      "historia": [7.2, 7.9, 7.8, 7.5],
+      "geografia": [7.3, 7.6, 7.6, 7.9],
+      "ingles": [7.4, 7.6, 7.4, 7.9]
+    }
   },
   {
     "id": 33,
-    "nome": "Amanda",
-    "notas": [8.4, 7.6, 8.9, 7.8]
+    "nome": "Cezar",
+    "notas": {
+      "portugues": [9, 8.5, 9.2, 8.8],
+      "matematica": [5, 5.5, 4.8, 5.2],
+      "historia": [6, 6.5, 5.8, 6.2],
+      "geografia": [9, 8.8, 9.1, 8.9],
+      "ingles": [8.5, 9, 8.7, 8.9]
+    }
   },
   {
     "id": 34,
-    "nome": "Carlos",
-    "notas": [0.8, 1.9, 1.2, 1.5]
+    "nome": "Juliana",
+    "notas": {
+      "portugues": [9, 9.5, 8.8, 9.3],
+      "matematica": [8.6, 9.1, 8.3, 8.8],
+      "historia": [9.2, 9.7, 9, 9.5],
+      "geografia": [8.8, 9.3, 8.5, 9],
+      "ingles": [8.9, 9.4, 8.6, 9.1]
+    }
   },
   {
     "id": 35,
-    "nome": "Mariana",
-    "notas": [9.2, 8.5, 9.7, 8.9]
+    "nome": "Guilherme",
+    "notas": {
+      "portugues": [7.7, 8.2, 7.4, 7.9],
+      "matematica": [8.4, 8.9, 8.1, 8.6],
+      "historia": [7.3, 7.8, 7, 7.5],
+      "geografia": [8.6, 9.1, 8.3, 8.8],
+      "ingles": [8, 8.5, 7.8, 8.2]
+    }
   },
   {
     "id": 36,
-    "nome": "Pedro Henrique",
-    "notas": [5.5, 6.1, 5.8, 5.9]
+    "nome": "Rafaela",
+    "notas": {
+      "portugues": [7.8, 8.3, 7.5, 8],
+      "matematica": [8.4, 8.9, 8.1, 8.6],
+      "historia": [8, 8.5, 7.8, 8.3],
+      "geografia": [8.2, 8.7, 8, 8.5],
+      "ingles": [8.1, 8.6, 7.8, 8.3]
+    }
   },
   {
     "id": 37,
     "nome": "Larissa",
-    "notas": [7.6, 8.1, 7.4, 8.3]
+    "notas": {
+      "portugues": [7.6, 8.1, 7.3, 7.8],
+      "matematica": [8.1, 8.6, 7.8, 8.3],
+      "historia": [7.4, 7.9, 7.1, 7.6],
+      "geografia": [8.3, 8.8, 8, 8.5],
+      "ingles": [8, 8.5, 7.8, 8.2]
+    }
   },
   {
     "id": 38,
-    "nome": "André",
-    "notas": [0.5, 1.3, 0.9, 1.1]
+    "nome": "Ana Keren",
+    "notas": {
+      "portugues": [1, 2, 1.5, 1.8],
+      "matematica": [2.5, 3, 2.2, 2.8],
+      "historia": [1.2, 1.8, 1.5, 1.6],
+      "geografia": [2, 2.5, 1.9, 2.2],
+      "ingles": [1.5, 2.2, 1.8, 2]
+    }
   },
   {
     "id": 39,
-    "nome": "Renata",
-    "notas": [8.7, 9.1, 8.3, 9.4]
+    "nome": "AndrÃ©",
+    "notas": {
+      "portugues": [7.5, 8, 7.2, 7.7],
+      "matematica": [8, 8.5, 7.8, 8.3],
+      "historia": [7.2, 7.7, 6.9, 7.4],
+      "geografia": [7.8, 8.3, 7.5, 8],
+      "ingles": [7.6, 8.1, 7.3, 7.8]
+    }
   },
   {
     "id": 40,
-    "nome": "Ricardo",
-    "notas": [1.2, 2.5, 1.9, 2.3]
+    "nome": "Pedro Henrique",
+    "notas": {
+      "portugues": [5.5, 6, 5.2, 5.7],
+      "matematica": [6.1, 6.6, 5.8, 6.3],
+      "historia": [5.8, 6.3, 5.5, 6],
+      "geografia": [5.9, 6.4, 5.6, 6.1],
+      "ingles": [6, 6.5, 5.7, 6.2]
+    }
   },
   {
     "id": 41,
-    "nome": "Patricia",
-    "notas": [7.2, 7.8, 7.0, 7.9]
+    "nome": "Henrique",
+    "notas": {
+      "portugues": [9.1, 9.6, 8.8, 9.3],
+      "matematica": [8.9, 9.4, 8.6, 9.1],
+      "historia": [9.3, 9.8, 9, 9.5],
+      "geografia": [8.7, 9.2, 8.4, 8.9],
+      "ingles": [9, 9.5, 8.8, 9.3]
+    }
   },
   {
     "id": 42,
-    "nome": "Marcos",
-    "notas": [1.0, 2.1, 1.4, 1.7]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.6, 7.8, 7.5, 8.3],
+      "matematica": [7.2, 7.7, 7.3, 7.6],
+      "historia": [7.6, 8.4, 7.2, 7.9],
+      "geografia": [7.3, 8.1, 7.7, 7.9],
+      "ingles": [7.5, 7.7, 7.9, 8.4]
+    }
   },
   {
     "id": 43,
-    "nome": "Tatiana",
-    "notas": [8.9, 8.2, 9.2, 8.6]
+    "nome": "Laura",
+    "notas": {
+      "portugues": [8.3, 8.8, 8, 8.5],
+      "matematica": [7.9, 8.4, 7.6, 8.1],
+      "historia": [8.7, 9.2, 8.4, 8.9],
+      "geografia": [8.1, 8.6, 7.8, 8.3],
+      "ingles": [8.5, 9, 8.2, 8.7]
+    }
   },
   {
     "id": 44,
-    "nome": "Pedro Lucas",
-    "notas": [2.5, 3.1, 2.8, 3.3]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [8, 7.9, 7.6, 7.8],
+      "matematica": [7.8, 8.5, 7.5, 8.3],
+      "historia": [7.4, 7.8, 7.9, 7.8],
+      "geografia": [8, 8.5, 7.3, 8.2],
+      "ingles": [7.7, 7.8, 7, 7.8]
+    }
   },
   {
     "id": 45,
-    "nome": "Vanessa",
-    "notas": [9.4, 8.8, 9.8, 9.0]
+    "nome": "Pedro Lucas",
+    "notas": {
+      "portugues": [2.5, 3, 2.2, 2.7],
+      "matematica": [3.1, 3.6, 2.8, 3.3],
+      "historia": [2.8, 3.3, 2.5, 3],
+      "geografia": [3.3, 3.8, 3, 3.5],
+      "ingles": [2.9, 3.4, 2.6, 3.1]
+    }
   },
   {
     "id": 46,
-    "nome": "Diego",
-    "notas": [2.1, 3.4, 2.7, 3.0]
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.4, 8.1, 7.5, 7.9],
+      "matematica": [7.3, 8.3, 7.9, 8.4],
+      "historia": [7, 7.9, 7.4, 7.5],
+      "geografia": [7, 7.8, 7.1, 8.1],
+      "ingles": [7.2, 8.3, 7.4, 7.8]
+    }
   },
   {
     "id": 47,
-    "nome": "Juliana",
-    "notas": [7.5, 8.0, 7.2, 8.4]
+    "nome": "Cristina",
+    "notas": {
+      "portugues": [8.1, 8.6, 7.8, 8.3],
+      "matematica": [7.4, 7.9, 7.1, 7.6],
+      "historia": [8.6, 9.1, 8.3, 8.8],
+      "geografia": [7.9, 8.4, 7.6, 8.1],
+      "ingles": [8.3, 8.8, 8, 8.5]
+    }
   },
   {
     "id": 48,
-    "nome": "Leonardo",
-    "notas": [0.7, 1.6, 1.0, 1.3]
+    "nome": "Jonas Silva",
+    "notas": {
+      "portugues": [2.8, 3.3, 2.5, 3],
+      "matematica": [3.2, 3.7, 2.9, 3.4],
+      "historia": [2.5, 3, 2.2, 2.7],
+      "geografia": [3, 3.5, 2.7, 3.2],
+      "ingles": [2.9, 3.4, 2.6, 3.1]
+    }
   },
   {
     "id": 49,
-    "nome": "Cristina",
-    "notas": [8.1, 7.4, 8.6, 7.9]
+    "nome": "Bruna",
+    "notas": {
+      "portugues": [8.1, 8.6, 7.8, 8.3],
+      "matematica": [8.7, 9.2, 8.4, 8.9],
+      "historia": [8.3, 8.8, 8, 8.5],
+      "geografia": [8.5, 9, 8.2, 8.7],
+      "ingles": [8.4, 8.9, 8.1, 8.6]
+    }
   },
   {
     "id": 50,
+    "nome": "Thiago",
+    "notas": {
+      "portugues": [6.5, 7, 6.2, 6.7],
+      "matematica": [7.1, 7.6, 6.8, 7.3],
+      "historia": [6.8, 7.3, 6.5, 7],
+      "geografia": [6.9, 7.4, 6.6, 7.1],
+      "ingles": [7, 7.5, 6.7, 7.2]
+    }
+  },
+  {
+    "id": 51,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.5, 8.5, 7.4, 8.3],
+      "matematica": [7.2, 8.4, 7.3, 8],
+      "historia": [7.7, 8.3, 7.7, 7.9],
+      "geografia": [7.3, 8.4, 7, 8.1],
+      "ingles": [7.3, 8.4, 8, 8.2]
+    }
+  },
+  {
+    "id": 52,
+    "nome": "JoÃ£o",
+    "notas": {
+      "portugues": [7.5, 8, 7.2, 7.7],
+      "matematica": [8, 8.5, 7.8, 8.3],
+      "historia": [7.2, 7.7, 6.9, 7.4],
+      "geografia": [7.8, 8.3, 7.5, 8],
+      "ingles": [7.6, 8.1, 7.3, 7.8]
+    }
+  },
+  {
+    "id": 53,
+    "nome": "Rafael",
+    "notas": {
+      "portugues": [7.8, 8.3, 7.5, 8],
+      "matematica": [8.3, 8.8, 8, 8.5],
+      "historia": [9.1, 9.6, 8.8, 9.3],
+      "geografia": [7.2, 7.7, 6.9, 7.4],
+      "ingles": [8, 8.5, 7.8, 8.2]
+    }
+  },
+  {
+    "id": 54,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.5, 7.9, 7.1, 7.6],
+      "matematica": [7.6, 8.2, 7.6, 8.2],
+      "historia": [7.4, 8.4, 7.1, 8.3],
+      "geografia": [7.6, 8.5, 7.9, 8.3],
+      "ingles": [7.4, 8, 7.2, 7.6]
+    }
+  },
+  {
+    "id": 55,
+    "nome": "Leonardo",
+    "notas": {
+      "portugues": [7.4, 7.9, 7.1, 7.6],
+      "matematica": [8, 8.5, 7.8, 8.3],
+      "historia": [7.6, 8.1, 7.3, 7.8],
+      "geografia": [7.8, 8.3, 7.5, 8],
+      "ingles": [7.7, 8.2, 7.4, 7.9]
+    }
+  },
+  {
+    "id": 56,
+    "nome": "Gabriel",
+    "notas": {
+      "portugues": [10, 10, 9.8, 9.9],
+      "matematica": [10, 10, 9.9, 10],
+      "historia": [10, 9.8, 10, 9.9],
+      "geografia": [10, 10, 9.9, 10],
+      "ingles": [6, 6.5, 5.8, 6.2]
+    }
+  },
+  {
+    "id": 57,
+    "nome": "Bruno",
+    "notas": {
+      "portugues": [7.4, 7.9, 7.1, 7.6],
+      "matematica": [8.2, 8.7, 8, 8.5],
+      "historia": [7.6, 8.1, 7.3, 7.8],
+      "geografia": [8, 8.5, 7.8, 8.3],
+      "ingles": [8.2, 8.7, 8, 8.5]
+    }
+  },
+  {
+    "id": 58,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.5, 8.1, 7, 8.4],
+      "matematica": [7.2, 8.2, 7.7, 7.6],
+      "historia": [7.3, 8.3, 7, 7.7],
+      "geografia": [7.9, 8.1, 7.4, 8.3],
+      "ingles": [7.4, 8.3, 7.4, 7.6]
+    }
+  },
+  {
+    "id": 59,
+    "nome": "Renata",
+    "notas": {
+      "portugues": [8.7, 9.2, 8.4, 8.9],
+      "matematica": [9.1, 9.6, 8.8, 9.3],
+      "historia": [8.3, 8.8, 8, 8.5],
+      "geografia": [9.4, 9.9, 9.1, 9.6],
+      "ingles": [9, 9.5, 8.8, 9.3]
+    }
+  },
+  {
+    "id": 60,
+    "nome": "Manuela",
+    "notas": {
+      "portugues": [9.3, 9.8, 9, 9.5],
+      "matematica": [8.9, 9.4, 8.6, 9.1],
+      "historia": [9.6, 10, 9.3, 9.8],
+      "geografia": [9.1, 9.6, 8.8, 9.3],
+      "ingles": [9.5, 10, 9.2, 9.7]
+    }
+  },
+  {
+    "id": 61,
+    "nome": "Lucas",
+    "notas": {
+      "portugues": [3.2, 3.7, 2.9, 3.4],
+      "matematica": [3.8, 4.3, 3.5, 4],
+      "historia": [3.5, 4, 3.2, 3.7],
+      "geografia": [3.6, 4.1, 3.3, 3.8],
+      "ingles": [3.7, 4.2, 3.4, 3.9]
+    }
+  },
+  {
+    "id": 62,
+    "nome": "Julia",
+    "notas": {
+      "portugues": [9.1, 9.6, 8.8, 9.3],
+      "matematica": [8.6, 9.1, 8.3, 8.8],
+      "historia": [9.4, 9.9, 9.1, 9.6],
+      "geografia": [8.8, 9.3, 8.5, 9],
+      "ingles": [9, 9.5, 8.8, 9.3]
+    }
+  },
+  {
+    "id": 63,
+    "nome": "Maria Eduarda",
+    "notas": {
+      "portugues": [8.5, 9, 8.2, 8.8],
+      "matematica": [9, 9.5, 8.8, 9.2],
+      "historia": [7.5, 8, 7.2, 7.8],
+      "geografia": [8.2, 8.7, 7.9, 8.5],
+      "ingles": [8, 8.5, 7.8, 8.2]
+    }
+  },
+  {
+    "id": 64,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.6, 8.4, 7.1, 8.2],
+      "matematica": [7.4, 8.2, 7, 8],
+      "historia": [7.6, 7.9, 7, 8.4],
+      "geografia": [7.3, 8.1, 7.7, 7.7],
+      "ingles": [7.2, 7.6, 7.9, 7.5]
+    }
+  },
+  {
+    "id": 65,
+    "nome": "Mariana",
+    "notas": {
+      "portugues": [9.2, 9.7, 9, 9.5],
+      "matematica": [8.5, 9, 8.2, 8.7],
+      "historia": [9.7, 10, 9.2, 9.7],
+      "geografia": [8.9, 9.4, 8.6, 9.1],
+      "ingles": [9.3, 9.8, 9, 9.5]
+    }
+  },
+  {
+    "id": 66,
+    "nome": "Laryssa",
+    "notas": {
+      "portugues": [9, 8.5, 10, 9.2],
+      "matematica": [8.5, 9, 8.8, 9.5],
+      "historia": [7.5, 8, 7.8, 8.2],
+      "geografia": [8, 8.5, 7.9, 8.3],
+      "ingles": [9.2, 8.8, 9.5, 9]
+    }
+  },
+  {
+    "id": 67,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.7, 7.8, 7.8, 8],
+      "matematica": [7.4, 7.8, 7.8, 7.8],
+      "historia": [8, 7.9, 7.6, 8.5],
+      "geografia": [7.4, 7.9, 7.1, 7.5],
+      "ingles": [7.5, 7.8, 7.9, 8]
+    }
+  },
+  {
+    "id": 68,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.3, 8.1, 7.1, 7.7],
+      "matematica": [7.6, 8.5, 7.1, 8.5],
+      "historia": [7, 7.7, 7.8, 8],
+      "geografia": [7.2, 8.1, 7, 8],
+      "ingles": [7.6, 8.3, 7.6, 8.5]
+    }
+  },
+  {
+    "id": 69,
+    "nome": "Tatiana",
+    "notas": {
+      "portugues": [8.9, 9.4, 8.6, 9.1],
+      "matematica": [8.2, 8.7, 8, 8.5],
+      "historia": [9.2, 9.7, 9, 9.5],
+      "geografia": [8.6, 9.1, 8.3, 8.8],
+      "ingles": [8.8, 9.3, 8.5, 9]
+    }
+  },
+  {
+    "id": 70,
+    "nome": "Marli",
+    "notas": {
+      "portugues": [6, 6.5, 5.8, 6.2],
+      "matematica": [9.5, 9.8, 9.2, 9.6],
+      "historia": [5, 5.5, 4.8, 5.2],
+      "geografia": [7, 7.5, 6.8, 7.2],
+      "ingles": [8, 8.5, 7.8, 8.2]
+    }
+  },
+  {
+    "id": 71,
+    "nome": "Gustavo",
+    "notas": {
+      "portugues": [1.5, 2, 1.2, 1.7],
+      "matematica": [2.3, 2.8, 2, 2.5],
+      "historia": [1.8, 2.3, 1.5, 2],
+      "geografia": [2.1, 2.6, 1.8, 2.3],
+      "ingles": [1.9, 2.4, 1.6, 2.1]
+    }
+  },
+  {
+    "id": 72,
+    "nome": "Camila",
+    "notas": {
+      "portugues": [7.3, 7.8, 7, 7.5],
+      "matematica": [7.8, 8.3, 7.5, 8],
+      "historia": [8, 8.5, 7.8, 8.3],
+      "geografia": [7.5, 8, 7.2, 7.7],
+      "ingles": [7.9, 8.4, 7.6, 8.1]
+    }
+  },
+  {
+    "id": 73,
+    "nome": "Amanda",
+    "notas": {
+      "portugues": [8.4, 8.9, 8.1, 8.6],
+      "matematica": [7.6, 8.1, 7.3, 7.8],
+      "historia": [8.9, 9.4, 8.6, 9.1],
+      "geografia": [7.8, 8.3, 7.5, 8],
+      "ingles": [8.2, 8.7, 8, 8.5]
+    }
+  },
+  {
+    "id": 74,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.1, 7.6, 7.9, 7.9],
+      "matematica": [7.7, 7.8, 7.3, 8.2],
+      "historia": [7.3, 8.1, 7.9, 8.4],
+      "geografia": [7.3, 7.9, 7.6, 8.2],
+      "ingles": [7.9, 8.2, 7.2, 8.2]
+    }
+  },
+  {
+    "id": 75,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.8, 7.6, 7.4, 7.7],
+      "matematica": [7.1, 7.6, 7.2, 8],
+      "historia": [7.2, 8.4, 7.8, 8.1],
+      "geografia": [7.2, 8, 7.6, 8],
+      "ingles": [8, 7.9, 7.6, 7.9]
+    }
+  },
+  {
+    "id": 76,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.8, 7.5, 7.8, 7.7],
+      "matematica": [7.9, 8.4, 7.1, 8.1],
+      "historia": [7.2, 7.7, 7.1, 8.2],
+      "geografia": [8, 7.8, 7.3, 7.6],
+      "ingles": [7.5, 7.8, 7.9, 8.1]
+    }
+  },
+  {
+    "id": 77,
+    "nome": "Ana JÃºlia",
+    "notas": {
+      "portugues": [7.5, 8, 7.2, 7.7],
+      "matematica": [8, 8.5, 7.8, 8.3],
+      "historia": [7.2, 7.7, 6.9, 7.4],
+      "geografia": [7.8, 8.3, 7.5, 8],
+      "ingles": [7.6, 8.1, 7.3, 7.8]
+    }
+  },
+  {
+    "id": 78,
+    "nome": "Gabriel",
+    "notas": {
+      "portugues": [2.2, 2.7, 1.9, 2.4],
+      "matematica": [2.8, 3.3, 2.5, 3],
+      "historia": [2.5, 3, 2.2, 2.7],
+      "geografia": [2.6, 3.1, 2.3, 2.8],
+      "ingles": [2.7, 3.2, 2.4, 2.9]
+    }
+  },
+  {
+    "id": 79,
     "nome": "Roberto",
-    "notas": [1.8, 2.9, 2.2, 2.6]
+    "notas": {
+      "portugues": [1.8, 2.3, 1.5, 2],
+      "matematica": [2.9, 3.4, 2.6, 3.1],
+      "historia": [2.2, 2.7, 1.9, 2.4],
+      "geografia": [2.6, 3.1, 2.3, 2.8],
+      "ingles": [2.4, 2.9, 2.1, 2.6]
+    }
+  },
+  {
+    "id": 80,
+    "nome": "Vanessa",
+    "notas": {
+      "portugues": [9.4, 9.9, 9.1, 9.6],
+      "matematica": [8.8, 9.3, 8.5, 9],
+      "historia": [9.8, 10, 9.3, 9.8],
+      "geografia": [9, 9.5, 8.8, 9.3],
+      "ingles": [9.2, 9.7, 9, 9.5]
+    }
+  },
+  {
+    "id": 81,
+    "nome": "Leticia",
+    "notas": {
+      "portugues": [5.2, 5.7, 4.9, 5.4],
+      "matematica": [5.8, 6.3, 5.5, 6],
+      "historia": [5.5, 6, 5.2, 5.7],
+      "geografia": [5.6, 6.1, 5.3, 5.8],
+      "ingles": [5.7, 6.2, 5.4, 5.9]
+    }
+  },
+  {
+    "id": 82,
+    "nome": "Rafaela",
+    "notas": {
+      "portugues": [7.6, 8.1, 7.3, 7.8],
+      "matematica": [8.2, 8.7, 8, 8.5],
+      "historia": [7.8, 8.3, 7.5, 8],
+      "geografia": [8, 8.5, 7.8, 8.3],
+      "ingles": [7.9, 8.4, 7.6, 8.1]
+    }
+  },
+  {
+    "id": 83,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.4, 8.1, 7.7, 7.9],
+      "matematica": [7.8, 7.7, 7.7, 8.2],
+      "historia": [7.2, 8.4, 7.4, 8],
+      "geografia": [7.6, 8.3, 7.3, 7.8],
+      "ingles": [7, 8, 7.4, 7.8]
+    }
+  },
+  {
+    "id": 84,
+    "nome": "Fernanda",
+    "notas": {
+      "portugues": [5.1, 5.6, 4.8, 5.3],
+      "matematica": [5.7, 6.2, 5.4, 5.9],
+      "historia": [5.4, 5.9, 5.1, 5.6],
+      "geografia": [5.5, 6, 5.2, 5.7],
+      "ingles": [5.6, 6.1, 5.3, 5.8]
+    }
+  },
+  {
+    "id": 85,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.8, 8.2, 7.2, 8.4],
+      "matematica": [7.7, 7.5, 7.7, 7.6],
+      "historia": [7.9, 7.7, 7.6, 7.6],
+      "geografia": [7.2, 7.9, 7.3, 8.4],
+      "ingles": [8, 7.6, 7, 7.7]
+    }
+  },
+  {
+    "id": 86,
+    "nome": "Vitoria",
+    "notas": {
+      "portugues": [4.1, 4.6, 3.8, 4.3],
+      "matematica": [4.7, 5.2, 4.4, 4.9],
+      "historia": [4.4, 4.9, 4.1, 4.6],
+      "geografia": [4.5, 5, 4.2, 4.7],
+      "ingles": [4.6, 5.1, 4.3, 4.8]
+    }
+  },
+  {
+    "id": 87,
+    "nome": "Carolina",
+    "notas": {
+      "portugues": [7.2, 7.7, 6.9, 7.4],
+      "matematica": [7.8, 8.3, 7.5, 8],
+      "historia": [7.4, 7.9, 7.1, 7.6],
+      "geografia": [7.6, 8.1, 7.3, 7.8],
+      "ingles": [7.5, 8, 7.2, 7.7]
+    }
+  },
+  {
+    "id": 88,
+    "nome": "Mariana",
+    "notas": {
+      "portugues": [8.6, 9.1, 8.3, 8.8],
+      "matematica": [9.2, 9.7, 9, 9.5],
+      "historia": [8.8, 9.3, 8.5, 9],
+      "geografia": [9, 9.5, 8.8, 9.3],
+      "ingles": [8.9, 9.4, 8.6, 9.1]
+    }
+  },
+  {
+    "id": 89,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.5, 7.8, 7.1, 8.2],
+      "matematica": [7.4, 8, 7.3, 7.7],
+      "historia": [7.1, 8.3, 7.2, 8],
+      "geografia": [7.7, 7.8, 7.9, 7.7],
+      "ingles": [7.1, 7.6, 7.6, 7.6]
+    }
+  },
+  {
+    "id": 90,
+    "nome": "Gabriel",
+    "notas": {
+      "portugues": [1.8, 2.3, 1.5, 2],
+      "matematica": [2.4, 2.9, 2.1, 2.6],
+      "historia": [2.1, 2.6, 1.8, 2.3],
+      "geografia": [2.3, 2.8, 2, 2.5],
+      "ingles": [2.2, 2.7, 1.9, 2.4]
+    }
+  },
+  {
+    "id": 91,
+    "nome": "Sophia",
+    "notas": {
+      "portugues": [8.8, 9.3, 8.5, 9],
+      "matematica": [9.2, 9.7, 9, 9.5],
+      "historia": [8.4, 8.9, 8.1, 8.6],
+      "geografia": [9, 9.5, 8.8, 9.3],
+      "ingles": [9.2, 9.7, 9, 9.5]
+    }
+  },
+  {
+    "id": 92,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [8, 8.3, 7.5, 7.5],
+      "matematica": [7.8, 8.3, 7.9, 7.8],
+      "historia": [7.6, 8.4, 7.9, 7.7],
+      "geografia": [7.1, 7.7, 7.7, 8.2],
+      "ingles": [7.3, 7.7, 7, 8.4]
+    }
+  },
+  {
+    "id": 93,
+    "nome": "Vitoria",
+    "notas": {
+      "portugues": [3.1, 3.6, 2.8, 3.3],
+      "matematica": [3.7, 4.2, 3.4, 3.9],
+      "historia": [3.4, 3.9, 3.1, 3.6],
+      "geografia": [3.5, 4, 3.2, 3.7],
+      "ingles": [3.6, 4.1, 3.3, 3.8]
+    }
+  },
+  {
+    "id": 94,
+    "nome": "Marcos",
+    "notas": {
+      "portugues": [1, 1.5, 0.7, 1.2],
+      "matematica": [2.1, 2.6, 1.8, 2.3],
+      "historia": [1.4, 1.9, 1.1, 1.6],
+      "geografia": [1.7, 2.2, 1.4, 1.9],
+      "ingles": [1.3, 1.8, 1, 1.5]
+    }
+  },
+  {
+    "id": 95,
+    "nome": "Silvia",
+    "notas": {
+      "portugues": [7.4, 7.5, 7.6, 8.1],
+      "matematica": [7.4, 8, 7.1, 7.8],
+      "historia": [7.6, 8.3, 7.1, 7.9],
+      "geografia": [7.1, 7.8, 7.2, 8],
+      "ingles": [7.6, 7.6, 7.9, 7.7]
+    }
+  },
+  {
+    "id": 96,
+    "nome": "Eduardo",
+    "notas": {
+      "portugues": [8.5, 9, 8.2, 8.7],
+      "matematica": [9.2, 9.7, 9, 9.5],
+      "historia": [8.8, 9.3, 8.5, 9],
+      "geografia": [9, 9.5, 8.8, 9.3],
+      "ingles": [8.7, 9.2, 8.4, 8.9]
+    }
+  },
+  {
+    "id": 97,
+    "nome": "Felipe",
+    "notas": {
+      "portugues": [4.2, 4.7, 3.9, 4.4],
+      "matematica": [3.8, 4.3, 3.5, 4],
+      "historia": [4.5, 5, 4.2, 4.7],
+      "geografia": [3.9, 4.4, 3.6, 4.1],
+      "ingles": [4, 4.5, 3.7, 4.2]
+    }
+  },
+  {
+    "id": 98,
+    "nome": "Pedro",
+    "notas": {
+      "portugues": [0, 1, 0.5, 0.8],
+      "matematica": [2, 2.5, 1.8, 2.2],
+      "historia": [5, 5.5, 4.8, 5.2],
+      "geografia": [5, 5.5, 4.8, 5.2],
+      "ingles": [1, 1.5, 0.8, 1.2]
+    }
+  },
+  {
+    "id": 99,
+    "nome": "Antonietta",
+    "notas": {
+      "portugues": [6, 6.5, 5.8, 6.2],
+      "matematica": [5, 5.5, 4.8, 5.2],
+      "historia": [5.6, 6, 5.3, 5.8],
+      "geografia": [8, 8.5, 7.8, 8.2],
+      "ingles": [7, 7.5, 6.8, 7.2]
+    }
+  },
+  {
+    "id": 100,
+    "nome": "Lucas",
+    "notas": {
+      "portugues": [6, 6.5, 5.8, 6.2],
+      "matematica": [8, 8.5, 7.8, 8.2],
+      "historia": [4, 4.5, 3.8, 4.2],
+      "geografia": [6, 6.5, 5.8, 6.2],
+      "ingles": [7, 7.5, 6.8, 7.2]
+    }
   }
 ]
-
