@@ -1,16 +1,16 @@
 # Boletim Escolar API
 
-API REST desenvolvida em NestJS para gerenciamento de boletim escolar, permitindo consultar alunos, suas notas por disciplina, médias e status detalhado de aprovação.
+API REST profissional desenvolvida com NestJS para facilitar o gerenciamento de boletins escolares. Com ela, você consulta alunos, acompanha notas por disciplina, recebe o cálculo automático das médias e um status detalhado de aprovação — tudo de forma prática e transparente.
 
 ---
 
-## ⚡️ Mudanças Recentes (Release Notes)
+## ⚡️ Release Notes (Resumo das Mudanças Recentes)
 
-Este projeto passou por uma reestruturação total visando clareza, robustez e funcionalidades mais avançadas:
+O projeto passou por uma grande atualização para trazer mais clareza, flexibilidade e robustez. Confira o que mudou, explicado de forma profissional e didática:
 
-- **Novo modelo de notas:**  
-  Cada aluno agora possui notas separadas para cada disciplina (português, matemática, história, geografia, inglês).  
-  Exemplo interno:
+- **Modelo avançado de notas por disciplina:**  
+  Agora as notas são organizadas dentro de cada matéria (português, matemática, história, geografia, inglês).  
+  Exemplo de estrutura:
   ```json
   {
     "id": 1,
@@ -24,61 +24,62 @@ Este projeto passou por uma reestruturação total visando clareza, robustez e f
     }
   }
   ```
-  - Todas as operações de criação, atualização e visualização de alunos consideram esse formato.
+  - Sempre que criar, atualizar ou buscar aluno, siga esse formato.
 
-- **Cálculo automático de média por disciplina:**  
-  Para cada disciplina é calculada a média (com duas casas decimais), tornando o status de aprovação mais transparente.
+- **Média automática por disciplina (2 casas decimais):**  
+  O sistema calcula automaticamente a média de cada matéria, facilitando a visualização do desempenho individual.
 
-- **Status de aprovação detalhado e inteligente:**  
-  O status do aluno reflete situações como:
-  - Aprovado com Sucesso (todas as médias ≥ 7)
-  - Recuperação (quando 4 ou 5 disciplinas ficam com média ≥5 e <7)
-  - Dependência (1, 2 ou 3 disciplinas entre 5 e 6.99)
-  - Reprovação total (qualquer disciplina reprovada)
-  > O status descritivo informa em quais matérias houve dependência, recuperação ou reprovação.
+- **Status de aprovação detalhado:**  
+  O status final do aluno (Aprovado, Dependência, Recuperação ou Reprovado) agora é calculado de forma inteligente, considerando:
+    - **Aprovado:** Todas as médias ≥ 7.
+    - **Recuperação:** Quando 4 ou 5 disciplinas têm média entre 5 (inclusive) e 7 (exclusivo).
+    - **Dependência:** Entre 1 e 3 disciplinas na faixa de média entre 5 e 6,99.
+    - **Reprovação:** Uma ou mais disciplinas com média < 5.
+  > A descrição de status mostra em quais disciplinas existe dependência, necessidade de recuperação ou reprovação.
 
-- **EndPoints separados para cada status:**  
-  Agora é possível filtrar por:
-  - Alunos aprovados (`GET /alunos/aprovados`)
-  - Alunos em dependência (`GET /alunos/dependentes`)
-  - Alunos em recuperação (`GET /alunos/recuperacao`)
-  - Alunos reprovados (`GET /alunos/reprovados`)
+- **Endpoints de filtro específicos para status:**  
+  Filtre diretamente os alunos por situação:
+    - `GET /alunos/aprovados`
+    - `GET /alunos/dependentes`
+    - `GET /alunos/recuperacao`
+    - `GET /alunos/reprovados`
 
-- **Validação aprimorada dos dados:**  
-  Todos os campos de notas passam por checagem de tipo, tamanho mínimo e valores aceitáveis (0 a 10). Erros retornam mensagens claras.
+- **Validação profissional dos dados:**  
+  As notas devem ser sempre números entre 0 e 10, obrigatoriamente, com checagens de tipo e tamanho. Qualquer erro retorna mensagens claras e objetivas.
 
-- **Retorno padronizado dos alunos:**  
-  Todas as respostas exibem:
-    - Nome
+- **Respostas padronizadas:**  
+  Todas as respostas seguem o padrão:
+    - Nome do aluno
     - ID
-    - Notas por disciplina (incluindo médias)
-    - Status calculado conforme regras da escola
+    - Notas (e médias detalhadas por disciplina)
+    - Status descritivo e transparente
 
 ---
 
 ## 📋 Sobre o Projeto
 
-O sistema de boletim escolar oferece endpoints para:
-- Listar todos os alunos (com notas, médias por disciplina e status detalhado)
-- Buscar aluno pelo ID
-- Filtrar alunos por status (Aprovados, Dependentes, Recuperação, Reprovados)
-- Criar alunos individualmente (POST), fornecendo as notas organizadas por disciplina
-- Atualizar nome e/ou apenas algumas notas específicas de um aluno (PUT)
-- Deletar alunos (DELETE)
-- Cálculo automático e determinístico dos resultados baseado nas médias de cada disciplina
+Este sistema oferece um serviço completo para o gerenciamento escolar, incluindo:
 
-Todos os dados dos alunos são armazenados de forma persistente em um arquivo JSON local (`alunos.json`).
+- Listagem geral dos alunos (com notas, médias e status detalhado)
+- Consulta de aluno pelo ID
+- Filtragem avançada por status (Aprovados, Dependentes, Recuperação, Reprovados)
+- Cadastro de novos alunos (POST), sempre utilizando a organização por disciplina
+- Atualização flexível (PUT) do nome ou de notas específicas
+- Remoção definitiva de alunos (DELETE)
+- Todo o cálculo de médias e status é automático e baseado nas regras da escola
+
+Todos os dados são gravados de forma persistente no arquivo `alunos.json`, local.
 
 ---
 
-## 🛠️ Tecnologias Usadas
+## 🛠️ Tecnologias Utilizadas
 
-- **NestJS** — Framework Node.js para estrutura modular e robusta
-- **TypeScript** — Garantia de tipagem e manutenção do código
-- **Node.js** — Runtime moderno e eficiente
-- **Express** — Servidor via plataforma do NestJS
-- **Swagger/OpenAPI** — Interface e documentação interativa da API
-- **File System** (`fs`) — Persistência simples dos dados locais
+- **NestJS** — Framework robusto Node.js para backend escalável
+- **TypeScript** — Tipagem estática para consistência e fácil manutenção
+- **Node.js** — Execução moderna para APIs performáticas
+- **Express** — Servidor HTTP integrado ao NestJS
+- **Swagger/OpenAPI** — Interface profissional de documentação e testes da API
+- **File System (fs)** — Persistência local simples e confiável
 
 ---
 
@@ -88,22 +89,22 @@ Todos os dados dos alunos são armazenados de forma persistente em um arquivo JS
 boletim_escolar/
 ├── src/
 │   ├── boletim_escolar/
-│   │   ├── alunos.json                  # Dados persistidos (não apague manualmente)
-│   │   ├── dto/                         # Tipos de dados e validação
+│   │   ├── alunos.json                   # Dados persistidos (não remova manualmente)
+│   │   ├── dto/                          # Definições de tipos e validação
 │   │   │   ├── criar_aluno.dto.ts
 │   │   │   ├── atualizar_aluno.dto.ts 
 │   │   │   └── aluno_response.dto.ts
-│   │   ├── boletim_escolar.controller.ts # Rotas REST e integração Swagger
-│   │   ├── boletim_escolar.service.ts    # Lógica completa de negócio
+│   │   ├── boletim_escolar.controller.ts # Endpoints REST, integrações e Swagger
+│   │   ├── boletim_escolar.service.ts    # Toda a lógica de negócio
 │   │   └── boletim_escolar.module.ts     # Módulo principal
 │   ├── app.module.ts
-│   └── main.ts                          # Bootstrap + Swagger
+│   └── main.ts                           # Bootstrap + configuração do Swagger
 |
 ├──── scripts
-|     └── seed-alunos.ts                 # tratamento de dados no alunos.json
-|                                        
+|     └── seed-alunos.ts                  # Utilitário para tratar alunos.json
+|                                         
 |
-├── dist/                                # Arquivos compilados
+├── dist/                                 # Código compilado
 ├── nest-cli.json
 ├── package.json
 ├── README.md
@@ -112,13 +113,13 @@ boletim_escolar/
 
 ---
 
-## 🚀 Como Clonar e Executar
+## 🚀 Como Executar o Projeto Localmente
 
 ### Pré-requisitos
-- Node.js (18+)
-- npm ou yarn
+- Node.js v18 ou superior
+- Gerenciador de pacotes: npm ou yarn
 
-### Instalação Rápida
+### Passos rápidos:
 
 1. Clone o repositório:
 ```bash
@@ -129,30 +130,30 @@ cd boletim_escolar
 ```bash
 npm install
 ```
-3. Execute:
+3. Inicialize o servidor:
 ```bash
 npm run start:dev
 ```
-4. API: http://localhost:3000  
-5. Swagger: http://localhost:3000/api
+4. Acesse a API em: http://localhost:3000  
+5. Acesse a documentação interativa (Swagger): http://localhost:3000/api
 
 ---
 
 ## 📡 Endpoints Disponíveis
 
-> Para detalhes, consulte a [Documentação Swagger](#-documentação-swagger) em `http://localhost:3000/api`
+> Detalhes completos na [Documentação Swagger](#-documentação-swagger) (`http://localhost:3000/api`)
 
-### Métodos GET
-- `GET /alunos`                   — Lista todos os alunos (notas, médias e status)
-- `GET /alunos/aprovados`         — Só alunos aprovados em todas as disciplinas
-- `GET /alunos/dependentes`       — Alunos que têm matérias em dependência
-- `GET /alunos/recuperacao`       — Alunos em regime de recuperação
-- `GET /alunos/reprovados`        — Alunos reprovados
-- `GET /alunos/id/:id`            — Busca um aluno específico
+### GET
+- `GET /alunos`                  — Lista todos os alunos, incluindo médias e status detalhado
+- `GET /alunos/aprovados`        — Apenas alunos aprovados em todas as disciplinas
+- `GET /alunos/dependentes`      — Alunos que têm disciplinas em dependência
+- `GET /alunos/recuperacao`      — Alunos em regime de recuperação
+- `GET /alunos/reprovados`       — Alunos reprovados (média < 5 em qualquer matéria)
+- `GET /alunos/id/:id`           — Busca de aluno específico por ID
 
 ### POST
-- `POST /alunos` — Cria novo aluno  
-  Body:
+- `POST /alunos` — Cadastro de novo aluno  
+  Exemplo de body:
   ```json
   {
     "nome": "string",
@@ -165,11 +166,12 @@ npm run start:dev
     }
   }
   ```
-  Retorna o aluno criado, com médias e status.
+  > Retorna o aluno criado, já com médias e status.
 
 ### PUT
-- `PUT /alunos/id/:id` — Atualiza aluno  
-  Body flexível:
+- `PUT /alunos/id/:id` — Atualização de aluno  
+  Pode alterar só o nome, só notas, ou ambos.
+  Exemplos:
   ```json
   {
     "nome": "Novo Nome"
@@ -183,37 +185,36 @@ npm run start:dev
     }
   }
   ```
-  ou ambos  
-  Responde com aluno atualizado, médias recalculadas e status atualizado.
+  ou ambos juntos.  
+  > Responde com o aluno atualizado, médias recalculadas e status novo.
 
 ### DELETE
 - `DELETE /alunos/id/:id`  
-  Remove permanentemente o aluno
+  Remove o aluno do sistema de modo permanente.
 
 ---
 
 ## 📚 Documentação Swagger
 
-A documentação interativa está disponível automaticamente, detalhando todos os endpoints, parâmetros e exemplos de request/response.
+A API oferece documentação interativa, fácil de usar, explicando cada endpoint e mostrando exemplos reais de request e response.
 
-### Implementação do Swagger:
-- `src/main.ts` — Configuração do SwaggerModule
-- `boletim_escolar.controller.ts` — Decoradores do Swagger em cada rota
-- DTOs (`criar_aluno.dto.ts`, `atualizar_aluno.dto.ts`, `aluno_response.dto.ts`) — Tipagem e exemplos no Swagger
+### Como está implementado:
+- `src/main.ts` — Configuração principal do SwaggerModule
+- `boletim_escolar.controller.ts` — Endpoints documentados com decorators do Swagger
+- DTOs (`criar_aluno.dto.ts`, `atualizar_aluno.dto.ts`, `aluno_response.dto.ts`) — Modelos fortemente tipados com exemplos
 
 Acesse:  
 `http://localhost:3000/api`
 
-Use o botão **"Try it out"** no Swagger para testar POST, PUT ou DELETE diretamente no navegador, visualizando exemplos automáticos conforme o modelo real do projeto.
+Basta clicar em **"Try it out"** no Swagger para testar requisições POST, PUT e DELETE com exemplos reais.
 
 ---
 
-## 🔧 Como Usar os Métodos POST, PUT e DELETE
+## 🔧 Exemplos de Uso: POST, PUT e DELETE
 
-### Exemplo de Requisição (via Postman ou Swagger)
+### Exemplos práticos para utilizar nos clientes HTTP (Swagger ou Postman):
 
 #### POST - Criar Aluno
-Request:
 ```json
 {
   "nome": "João Silva",
@@ -227,8 +228,8 @@ Request:
 }
 ```
 
-#### PUT - Atualizar Nome/Notas
-Atualize só parte dos dados se quiser:
+#### PUT - Atualizar Nome ou Notas
+Atualize só a informação necessária, exemplo:
 ```json
 {
   "nome": "João S. Andrade"
@@ -243,30 +244,29 @@ ou
 }
 ```
 
-#### DELETE - Deletar Aluno
-Basta chamar o endpoint e passar o ID.
+#### DELETE - Remover Aluno
+Simplesmente acione o endpoint informando o ID do aluno.
 
 ---
 
-## ✅ Funcionalidades Implementadas
+## ✅ Funcionalidades Disponíveis
 
-- CRUD completo (GET, POST, PUT, DELETE)
-- Validação robusta (nomes obrigatórios, notas por disciplina exigidas, todos os valores de 0 a 10)
-- Média calculada por disciplina (2 casas decimais)
-- Status inteligente e descritivo por aluno, listando cada matéria no status
-- Endpoints específicos para filtrar por aprovação, dependência, recuperação e reprovação
-- Documentação interativa (Swagger) com exemplos reais de request/response
-- Mensagens de erro claras e UX consistente
-
----
-
-## 🔮 Futuras Atualizações
-
-- Adaptar para persistência real em banco de dados (MongoDB)
-- Autenticação de usuários e controle de permissões
-- Deploy Docker
-- Testes automatizados e CI/CD
-- Melhorias nas regras escolares e histórico dos alunos (múltiplos anos)
+- CRUD completo: listar, buscar, cadastrar, atualizar e remover alunos
+- Validação detalhada dos dados (nomes obrigatórios, todas as disciplinas e notas de 0 a 10)
+- Média por disciplina calculada automaticamente (duas casas decimais)
+- Status inteligente e transparente para cada aluno, detalhando cada disciplina
+- Endpoints específicos para filtros por status escolar
+- Documentação via Swagger com exemplos reais e UX padrão
+- Mensagens de erro claras e responsivas
 
 ---
 
+## 🔮 O que vem por aí
+
+- Migração dos dados para banco de dados real (MongoDB)
+- Autenticação de usuários e controle de acesso
+- Deploy via Docker
+- Testes automatizados e integração contínua (CI/CD)
+- Melhorias nas regras escolares e histórico acadêmico (múltiplos anos)
+
+---
