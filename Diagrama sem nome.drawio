@@ -101,6 +101,9 @@
         <mxCell id="_nmDgs3zfhJ5Xf_zF1Dx-35" value="/:id" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="520" y="490" width="80" height="80" as="geometry" />
         </mxCell>
+        <mxCell id="_nmDgs3zfhJ5Xf_zF1Dx-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="_nmDgs3zfhJ5Xf_zF1Dx-38" target="_nmDgs3zfhJ5Xf_zF1Dx-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="_nmDgs3zfhJ5Xf_zF1Dx-38" value="POST" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="200" y="210" width="80" height="80" as="geometry" />
         </mxCell>
